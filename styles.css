@@ -1,0 +1,214 @@
+/* --- 1. Variables & Base Setup --- */
+:root {
+    --primary-dark: #424242;
+    --secondary-dark: #272727;
+    --accent-blue: #3882f6;
+    --text-main: #f9faf8;
+    --text-muted: #d1d1d1;
+    --text-dark: #1f2937;
+    --radius: 16px;
+    --transition: 0.3s ease;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    margin: 0;
+    font-family: 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+    line-height: 1.6;
+    background-color: #fff;
+    color: var(--text-dark);
+}
+
+/* --- 2. Navigation & Header --- */
+.main-header {
+    background-color: var(--primary-dark);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px 50px;
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+}
+
+.header-top {
+    font-size: 24px;
+    color: var(--text-main);
+    margin: 0;
+    text-transform: lowercase;
+}
+
+.nav-list, .footer-nav-list {
+    list-style: none;
+    display: flex;
+    gap: 25px;
+    margin: 0;
+    padding: 0;
+}
+
+.nav-bar a, .footer-nav-list a {
+    color: var(--text-main);
+    text-decoration: none;
+    font-size: 14px;
+    transition: color var(--transition);
+}
+
+.nav-bar a:hover {
+    color: var(--accent-blue);
+}
+
+/* --- 3. Hero Section --- */
+.hero-block {
+    background: linear-gradient(rgba(0,0,0,0.85), rgba(0,0,0,0.85)), 
+                url('img/r4shbg.png') center/cover no-repeat;
+    color: var(--text-main);
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: center;
+    gap: 50px;
+    padding: 100px 50px;
+}
+
+.hero-content {
+    flex: 1;
+    min-width: 300px;
+    max-width: 600px;
+}
+
+.hero-title {
+    font-size: 48px;
+    margin: 0 0 20px 0;
+}
+
+.hero-subtitle {
+    font-size: 20px;
+    color: var(--text-muted);
+    margin-bottom: 30px;
+}
+
+.hero-button {
+    background-color: var(--accent-blue);
+    color: white;
+    border: none;
+    padding: 15px 35px;
+    font-size: 18px;
+    font-weight: bold;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: transform 0.2s ease, background 0.2s ease;
+}
+
+.hero-button:hover {
+    background-color: #2563eb;
+    transform: translateY(-2px);
+}
+
+.hero-video {
+    flex: 1;
+    min-width: 300px;
+    max-width: 500px;
+    aspect-ratio: 16 / 9;
+}
+
+.hero-video iframe {
+    width: 100%;
+    height: 100%;
+    border-radius: var(--radius);
+    border: none;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.5);
+}
+
+/* --- 4. Features (Shorts) Section --- */
+.features-section {
+    padding: 80px 50px;
+    background-color: var(--text-main);
+    text-align: center;
+}
+
+.section-intro {
+    margin-bottom: 60px;
+}
+
+.section-intro h2 {
+    font-size: 36px;
+    margin-bottom: 15px;
+}
+
+.features-description {
+    max-width: 800px;
+    margin: 0 auto;
+    color: #4b5563;
+}
+
+.features-grid {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 30px;
+}
+
+.feature-item {
+    background: white;
+    padding: 20px;
+    border-radius: var(--radius);
+    transition: transform var(--transition);
+}
+
+.feature-item:hover {
+    transform: translateY(-10px);
+}
+
+.feature-item h3 {
+    font-size: 16px;
+    margin-bottom: 20px;
+    height: 40px; /* Ensures alignment if titles wrap */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.feature-video {
+    border-radius: 12px;
+    border: none;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+}
+
+/* --- 5. Footer --- */
+.main-footer {
+    background-color: var(--secondary-dark);
+    color: var(--text-muted);
+    padding: 50px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 20px;
+}
+
+.footer-nav-list a {
+    color: var(--text-muted);
+}
+
+.footer-nav-list a:hover {
+    color: white;
+}
+
+/* --- 6. Responsive Adjustments --- */
+@media (max-width: 768px) {
+    .main-header, .main-footer {
+        flex-direction: column;
+        text-align: center;
+    }
+    
+    .hero-block {
+        padding: 60px 20px;
+    }
+    
+    .hero-title {
+        font-size: 32px;
+    }
+}
