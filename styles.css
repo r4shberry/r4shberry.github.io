@@ -9,7 +9,7 @@
     --text-dark: #1f2937;
     --radius: 16px;
     --btn-radius: 15px;
-    --transition: 0.3s ease;
+    --transition: 0.5s cubic-bezier(0.45, 0, 0.55, 1);
     --shadow-glow: 0 5px 15px rgba(0, 123, 255, 0.4);
 }
 
@@ -21,9 +21,10 @@ body {
     line-height: 1.6;
     background-color: #fff;
     color: var(--text-dark);
+    overflow-x: hidden;
 }
 
-/* --- 2. Shared Components (DRY) --- */
+/* --- 2. Shared Components --- */
 .nav-list, .footer-nav-list, .features-nav-social-list {
     list-style: none;
     display: flex;
@@ -32,48 +33,37 @@ body {
     padding: 0;
 }
 
-/* Optimized Universal Button Style */
-button, 
-.btn-base,
-.hero-button, 
-.feature-tiktok-button, 
-.feature-yt-button {
-    display: inline-block;
+.features-nav-social-list {
+    justify-content: center;
+    padding: 25px;
+}
+
+button, .btn-base, .hero-button, .feature-tiktok-button, .feature-yt-button {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
     background-color: var(--accent-blue);
     color: #fff;
-    padding: 12px 24px;
     border: none;
     border-radius: var(--btn-radius);
     font-size: 1rem;
     font-weight: 600;
     cursor: pointer;
     text-decoration: none;
-    transition: all var(--transition);
-    outline: none;
-    min-width: 160px;  /* Same width */
-    height: 50px;      /* Same height */
-    padding: 0 24px;   /* Vertical padding removed because height is fixed */
+    transition: all 0.3s ease;
+    min-width: 160px;
+    height: 50px;
 }
 
-button:hover, .hero-button:hover, .feature-tiktok-button:hover, .feature-yt-button:hover {
+button:hover, .hero-button:hover {
     background-color: var(--accent-hover);
     transform: translateY(-3px);
     box-shadow: var(--shadow-glow);
 }
 
-button:active, .hero-button:active, .feature-tiktok-button:active, .feature-yt-button:active {
-    transform: translateY(-1px) scale(0.95);
-}
-
 /* --- 3. Header & Navigation --- */
 .main-header {
-    /* Solid Gradient: Dark Grey to Solid Black */
-    background: linear-gradient(
-        180deg, 
-        #2c2c2c 0%,   /* Dark Grey top */
-        #000000 100%  /* Pure Black bottom */
-    );
-    
+    background: linear-gradient(180deg, #2c2c2c 0%, #000000 100%);
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -81,8 +71,6 @@ button:active, .hero-button:active, .feature-tiktok-button:active, .feature-yt-b
     position: sticky;
     top: 0;
     z-index: 1000;
-    
-    /* Note: backdrop-filter won't be visible because background is now solid */
 }
 
 .header-top {
@@ -96,7 +84,7 @@ button:active, .hero-button:active, .feature-tiktok-button:active, .feature-yt-b
     color: var(--text-main);
     text-decoration: none;
     font-size: 14px;
-    transition: color var(--transition);
+    transition: color 0.3s ease;
 }
 
 .nav-bar a:hover { color: var(--accent-blue); }
@@ -112,40 +100,15 @@ button:active, .hero-button:active, .feature-tiktok-button:active, .feature-yt-b
     justify-content: center;
     gap: 40px;
     padding: 100px 5%;
+    clip-path: polygon(0% 0%, 100% 0%, 100% 90%, 50% 100%, 0% 90%);
 }
 
-.hero-block {
-    /* Creates a slanted bottom edge */
-    /*clip-path: polygon(0 0, 100% 0, 100% 90%, 0% 100%);*/
-    /* an arrow/pointed bottom */
-    clip-path: polygon(0% 0%, 100% 0%, 100% 90%, 50% 100%, 0% 90%)
-}
+.hero-content { flex: 1 1 300px; max-width: 600px; }
+.hero-title { font-size: clamp(2rem, 5vw, 3rem); margin: 0 0 20px 0; }
+.hero-video { flex: 1 1 300px; max-width: 500px; aspect-ratio: 16 / 9; }
+.hero-video iframe { width: 100%; height: 100%; border-radius: var(--radius); border: none; }
 
-.hero-content {
-    flex: 1 1 300px;
-    max-width: 600px;
-}
-
-.hero-title {
-    font-size: clamp(2rem, 5vw, 3rem);
-    margin: 0 0 20px 0;
-}
-
-.hero-video {
-    flex: 1 1 300px;
-    max-width: 500px;
-    aspect-ratio: 16 / 9;
-}
-
-.hero-video iframe {
-    width: 100%;
-    height: 100%;
-    border-radius: var(--radius);
-    box-shadow: 0 10px 30px rgba(0,0,0,0.5);
-    border: none;
-}
-
-/* --- 5. Features Section --- */
+/* --- 5. Features & Portfolio Section --- */
 .features-section {
     padding: 80px 5%;
     background-color: var(--text-main);
@@ -154,33 +117,128 @@ button:active, .hero-button:active, .feature-tiktok-button:active, .feature-yt-b
 
 .features-grid {
     display: flex;
-    flex-wrap: wrap;
+    flex-wrap: wrap; 
     justify-content: center;
     gap: 30px;
+    max-width: 1200px;
+    margin: 0 auto;
 }
 
-.feature-item {
+.feature-item, .portfolio-card {
     background: white;
     padding: 20px;
     border-radius: var(--radius);
-    transition: transform var(--transition), box-shadow var(--transition);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.05);
 }
 
-.feature-item:hover {
-    transform: translateY(-10px);
-    box-shadow: 0 10px 20px rgba(0,0,0,0.05);
+.feature-item h3 { margin-bottom: 15px; }
+
+/* --- Carousel Mechanics --- */
+.carousel-container {
+    width: 100%;
+    max-width: 1300px; /* Increased to allow room for buttons */
+    margin: 0 auto;
+    position: relative;
+    padding: 20px 60px; /* Added side padding for buttons */
+    box-sizing: border-box;
+    display: flex;
+    align-items: center;
 }
 
-.features-nav-social-list {
+.carousel-track-container { 
+    width: 100%; 
+    overflow: hidden; 
+}
+
+.carousel-track {
+    display: flex;
+    flex-wrap: nowrap;
+    gap: 20px;
+    transition: transform var(--transition);
+}
+
+.carousel-track .portfolio-card {
+    flex: 0 0 calc(33.333% - 14px); 
+    box-sizing: border-box;
+}
+
+/* --- Navigation Buttons --- */
+.control-btn {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background-color: var(--accent-blue);
+    color: white;
+    border: none;
+    width: 45px;
+    height: 45px;
+    min-width: 45px; /* Override base button min-width */
+    border-radius: 50%;
+    cursor: pointer;
+    z-index: 10;
+    font-size: 1.2rem;
+    display: flex;
+    align-items: center;
     justify-content: center;
-    padding: 25px; /* Cleaned up padding */
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.1);
 }
 
-/* --- 6. Footer --- */
+.control-btn:hover {
+    background-color: var(--accent-hover);
+    transform: translateY(-50%) scale(1.1);
+}
+
+.control-btn.prev { left: 5px; }
+.control-btn.next { right: 5px; }
+
+.gallery-img {
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+    border-radius: 8px;
+    cursor: zoom-in;
+    transition: filter 0.3s ease;
+}
+
+.gallery-img:hover { filter: brightness(0.85); }
+
+/* --- 6. Lightbox --- */
+.lightbox {
+    display: none;
+    position: fixed;
+    z-index: 9999;
+    left: 0; top: 0; width: 100%; height: 100%;
+    background-color: rgba(0, 0, 0, 0.9);
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+.lightbox-content {
+    max-width: 90%;
+    max-height: 80%;
+    border-radius: 4px;
+    animation: zoomIn 0.3s ease;
+}
+
+@keyframes zoomIn {
+    from { transform: scale(0.8); opacity: 0; }
+    to { transform: scale(1); opacity: 1; }
+}
+
+.close-lightbox {
+    position: absolute;
+    top: 20px; right: 40px;
+    color: white; font-size: 50px; cursor: pointer;
+}
+
+/* --- 7. Footer --- */
 .main-footer {
     background-color: var(--secondary-dark);
     color: var(--text-muted);
-    padding: 0px 5%; /* Fixed 0px padding issue */
+    padding: 30px 5%;
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -188,12 +246,140 @@ button:active, .hero-button:active, .feature-tiktok-button:active, .feature-yt-b
     gap: 20px;
 }
 
-/* --- 7. Responsive Adjustments --- */
+/* --- 8. Responsive Adjustments --- */
+@media (max-width: 900px) {
+    .carousel-track .portfolio-card {
+        flex: 0 0 calc(50% - 10px);
+    }
+}
+
 @media (max-width: 768px) {
-    .main-header, .main-footer, .nav-list {
+    .main-header, .main-footer {
         flex-direction: column;
         gap: 15px;
         text-align: center;
-        padding: 0px 5% 10px 5%;
     }
+    .nav-list { gap: 15px; }
+}
+
+@media (max-width: 600px) {
+    .carousel-container { padding: 20px 45px; } /* Smaller padding for mobile */
+    .carousel-track .portfolio-card {
+        flex: 0 0 100%;
+    }
+    .feature-item { width: 100%; }
+}
+
+/* --- FIX: Podium Dark Section --- */
+
+/* 1. Target the second features-section specifically */
+main section:nth-of-type(2) {
+    background-color: var(--secondary-dark) !important;
+    padding-bottom: 80px;
+}
+
+/* 2. Force the text inside to be white */
+main section:nth-of-type(2) h2, 
+main section:nth-of-type(2) p,
+main section:nth-of-type(2) h3 {
+    color: var(--text-main) !important;
+}
+
+/* 3. FIX THE LAYOUT: Ensure cards stay in a horizontal row */
+main section:nth-of-type(2) .carousel-track {
+    display: flex !important;
+    flex-direction: row !important;
+    flex-wrap: nowrap !important;
+    justify-content: flex-start !important;
+}
+
+/* 4. Style the cards so they are visible on the dark background */
+main section:nth-of-type(2) .portfolio-card {
+    background-color: #333 !important; /* Slightly lighter than the background */
+    border: 1px solid #444 !important;
+    flex: 0 0 calc(33.333% - 14px) !important; /* Keep 3 photos visible */
+}
+
+/* 5. Keep the buttons visible */
+main section:nth-of-type(2) .control-btn {
+    z-index: 5;
+    box-shadow: 0 0 15px rgba(0,0,0,0.5);
+}
+/* --- 1. Portfolio Hero Section --- */
+.portfolio-hero {
+    height: 40vh;
+    min-height: 300px;
+    background: linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.7)), 
+                url('img/r4shbg.png') center/cover no-repeat;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    color: var(--text-main);
+    /* Matching your home page hero shape */
+    clip-path: polygon(0% 0%, 100% 0%, 100% 90%, 50% 100%, 0% 90%);
+    margin-bottom: 20px;
+}
+
+.hero-title {
+    font-size: clamp(2rem, 5vw, 3.5rem);
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    margin: 0;
+}
+
+/* --- 2. Podium Section (Dark Background & White Borders) --- */
+
+/* Background matches the footer */
+.features-section.dark-section {
+    background-color: var(--secondary-dark) !important;
+    padding: 60px 5%;
+}
+
+/* Fix the layout mess: Force cards into a horizontal row */
+.dark-section .carousel-track {
+    display: flex !important;
+    flex-direction: row !important;
+    flex-wrap: nowrap !important;
+    gap: 20px !important;
+}
+
+/* White border for the preview photos */
+.dark-section .gallery-img {
+    border: 4px solid #ffffff !important;
+    border-radius: 8px;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.3);
+}
+
+/* Font color matches the background color exactly */
+.dark-section h2,
+.dark-section p,
+.dark-section h3 {
+    color: var(--secondary-dark) !important; 
+    /* This makes them "invisible" as requested */
+    margin-top: 15px;
+}
+
+/* Optional: If you want the text to appear ONLY when hovering over the card */
+.dark-section .portfolio-card:hover h3 {
+    color: white !important;
+    transition: color 0.3s ease;
+}
+
+/* --- 3. Section Divider Styling --- */
+hr {
+    border: 0;
+    height: 1px;
+    background: #eee;
+    margin: 40px 10%;
+}
+
+/* Hide divider when touching the dark section to keep it seamless */
+.dark-section + hr {
+    display: none;
+}
+
+.hero-subtitle {
+    font-size: 1.2rem;
+    margin: 0;
 }
