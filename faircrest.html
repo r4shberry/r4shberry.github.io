@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Faircrest Branding | King Ernest Pascual</title>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700&family=Playfair+Display:wght@400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="faircrest.css">
+</head>
+<body>
+
+    <div id="loader-overlay">
+        <div class="loader-spinner"></div>
+    </div>
+
+    <main class="case-container fade-in">
+        <header class="case-header">
+            <a href="portfolio.html" class="btn-back">← BACK TO PORTFOLIO</a>
+            <h1>Faircrest</h1>
+            <p class="case-subtitle">
+                International Medical Institute — Visual Identity System
+            </p>
+        </header>
+
+        <section class="case-section intro-text">
+            <div class="section-label">01. Overview</div>
+            <h2>Global Excellence in Healthcare</h2>
+            <p class="lead-paragraph">
+                Faircrest International Medical Institute required a professional identity that communicates trust, credibility and global medical authority.
+            </p>
+            <p class="lead-paragraph">
+                The visual identity centers around a shield and cross system representing protection, medical leadership and institutional strength.
+            </p>
+        </section>
+
+        <section class="case-section">
+            <div class="section-label">02. Logo System</div>
+            <div class="case-grid">
+                <div class="case-image">
+                    <img src="./img/faircrest/faircrestlogo.png" 
+                         class="png-asset" 
+                         alt="Faircrest Primary Logo">
+                </div>
+                <div class="case-image alt-bg">
+                    <img src="./img/faircrest/fclogo-horizontal.png" 
+                         class="png-asset horizontal" 
+                         alt="Faircrest Horizontal Logo">
+                </div>
+            </div>
+        </section>
+
+        <section class="case-section">
+            <div class="section-label">03. Construction</div>
+            <div class="case-image featured">
+                <img src="./img/faircrest/fc-logo-constr.png" 
+                     class="png-asset full-width" 
+                     alt="Faircrest Logo Construction">
+            </div>
+        </section>
+
+        <section class="case-section">
+            <div class="section-label">04. Typography</div>
+            <div class="case-grid">
+                <div class="font-card">
+                    <span class="font-tag">Primary Serif</span>
+                    <p class="font-name">Playfair Display</p>
+                    <p class="font-demo">
+                        Aa Bb Cc Dd Ee Ff Gg Hh Ii Jj Kk Ll Mm Nn Oo
+                        Pp Qq Rr Ss Tt Uu Vv Ww Xx Yy Zz
+                    </p>
+                </div>
+                <div class="font-card alt-bg">
+                    <span class="font-tag">Supporting Sans</span>
+                    <p class="font-name sans">Montserrat</p>
+                    <p class="font-demo">
+                        Aa Bb Cc Dd Ee Ff Gg Hh Ii Jj Kk Ll Mm Nn Oo
+                        Pp Qq Rr Ss Tt Uu Vv Ww Xx Yy Zz
+                    </p>
+                </div>
+            </div>
+        </section>
+
+        <section class="case-section">
+            <div class="section-label">05. Color Palette</div>
+            <div class="palette-grid">
+                <div class="palette navy">
+                    <span>Navy</span>
+                    <strong>#1D3557</strong>
+                </div>
+                <div class="palette gold">
+                    <span>Gold</span>
+                    <strong>#C8A45D</strong>
+                </div>
+                <div class="palette gray">
+                    <span>Gray</span>
+                    <strong>#F2F2F2</strong>
+                </div>
+            </div>
+        </section>
+
+        <section class="case-section">
+            <div class="section-label">06. Applications</div>
+            <div class="case-grid">
+                <div class="case-image app-card">
+                    <img src="./img/faircrest/mockup-stationery.jpg" 
+                         alt="Faircrest Stationery Mockup">
+                </div>
+                <div class="case-image app-card alt-bg">
+                    <img src="./img/faircrest/mockup-signage.jpg" 
+                         alt="Faircrest Signage Mockup">
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <script>
+        window.addEventListener("load", function() {
+            const loader = document.getElementById("loader-overlay");
+            loader.style.opacity = "0";
+            setTimeout(() => {
+                loader.style.display = "none";
+            }, 400);
+        });
+    </script>
+</body>
+</html>

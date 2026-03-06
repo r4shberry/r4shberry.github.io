@@ -308,3 +308,76 @@ h1 {
     .btn-group { flex-direction: column; }
     .btn { width: 100%; text-align: center; }
 }
+
+/* --- PORTFOLIO INTERACTIVE OVERLAY --- */
+
+/* Ensures the anchor tag doesn't behave like a text link */
+.portfolio-grid a.portfolio-item {
+    text-decoration: none;
+    color: inherit;
+    display: block;
+}
+
+.portfolio-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(17, 17, 17, 0.9); /* Your --primary-black with transparency */
+    display: flex;
+    align-items: flex-end;
+    padding: 30px;
+    opacity: 0;
+    transition: var(--transition);
+}
+
+.portfolio-item:hover .portfolio-overlay {
+    opacity: 1;
+}
+
+.portfolio-info {
+    transform: translateY(20px);
+    transition: var(--transition);
+}
+
+.portfolio-item:hover .portfolio-info {
+    transform: translateY(0);
+}
+
+.category-tag {
+    color: white;
+    font-size: 0.7rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    display: block;
+    margin-bottom: 8px;
+    opacity: 0.6;
+}
+
+.portfolio-info h3 {
+    color: white;
+    font-size: 1.4rem;
+    margin-bottom: 10px;
+    font-weight: 800;
+}
+
+.portfolio-info p {
+    color: white;
+    font-size: 0.75rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+/* Enhancing your existing img transition */
+.portfolio-item img {
+    transition: transform 0.8s cubic-bezier(0.2, 1, 0.3, 1);
+}
+
+.portfolio-item:hover img {
+    transform: scale(1.1);
+}
+
+
