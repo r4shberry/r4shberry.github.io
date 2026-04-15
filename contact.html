@@ -4,45 +4,60 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Connect | Ernest Pascual</title>
+
     <link rel="stylesheet" href="styles.css">
+
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700;800&display=swap" rel="stylesheet">
 </head>
+
 <body>
 
-    <div id="loader-overlay"><div class="loader-spinner"></div></div>
-
-    <main class="resume-view" id="contact-content">
-        <header style="border-bottom: 2px solid var(--primary-black); padding-bottom: 30px; margin-bottom: 40px;">
-            <a href="index.html" class="btn-back">← BACK TO HOME</a>
-            <h1 style="font-size: 3rem; margin-top: 15px; color: var(--primary-black);">Connect with me</h1>
-            <p style="color: var(--text-muted); font-size: 1.1rem;">Let's discuss your next project or visual identity.</p>
-        </header>
-
-        <div style="max-width: 600px;">
-            <form action="https://formspree.io/f/mlgwlzea" method="POST" class="contact-form">
-                
-                <div class="form-group">
-                    <label for="full-name">Your Name</label>
-                    <input type="text" name="name" id="full-name" required placeholder="John Doe">
-                </div>
-
-                <div class="form-group">
-                    <label for="email-address">Your Email</label>
-                    <input type="email" name="_replyto" id="email-address" required placeholder="email@example.com">
-                </div>
-
-                <div class="form-group">
-                    <label for="message">Message</label>
-                    <textarea name="message" id="message" rows="6" required placeholder="Tell me about your project..."></textarea>
-                </div>
-
-                <input type="hidden" name="_subject" value="New Portfolio Inquiry from Ernest Pascual">
-
-                <button type="submit" class="btn btn-primary" style="width: 100%; cursor: pointer; border: none;">Send Message</button>
-            </form>
+<div id="loader-overlay"><div class="loader-spinner"></div></div>
+<main class="resume-view" id="contact-content">
+    <!-- CONTACT CARDS -->
+    <div class="contact-wrapper">
+        <div class="contact-cards">
+            <a href="mailto:k.ernestpascual@gmail.com" class="contact-card">
+                <span class="contact-label">Email</span>
+                <span class="contact-value">k.ernestpascual@gmail.com</span>
+            </a>
+            <a href="https://www.linkedin.com/in/king-ernest-pascual-a53a53288/" 
+               target="_blank" 
+               class="contact-card">
+                <span class="contact-label">LinkedIn</span>
+                <span class="contact-value">king-ernest-pascual</span>
+            </a>
         </div>
-    </main>
+    </div>
+    <!-- MAIN TITLE -->
+    <header class="contact-header">
+        <h1>Connect with me</h1>
+        <p>Let's discuss your next project or visual identity.</p>
+    </header>
+    <!-- FORM -->
+    <div class="contact-wrapper">
+        <form action="https://formspree.io/f/mlgwlzea" method="POST" class="contact-form">
+            <div class="form-group">
+                <label for="full-name">Your Name</label>
+                <input type="text" name="name" id="full-name" required placeholder="John Doe">
+            </div>
+            <div class="form-group">
+                <label for="email-address">Your Email</label>
+                <input type="email" name="_replyto" id="email-address" required placeholder="email@example.com">
+            </div>
+            <div class="form-group">
+                <label for="message">Message</label>
+                <textarea name="message" id="message" rows="6" required placeholder="Tell me about your project..."></textarea>
+            </div>
+            <input type="hidden" name="_subject" value="New Portfolio Inquiry from Ernest Pascual">
+            <button type="submit" class="btn btn-primary submit-btn">
+                Send Message
+            </button>
+        </form>
+    </div>
+</main>
 
-    <script src="script.js"></script>
+<script src="script.js"></script>
+
 </body>
 </html>

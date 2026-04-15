@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AI Video Editing | Portfolio</title>
+    <link rel="stylesheet" href="styles.css">
+
+    <style>
+        /* HERO */
+        .ai-hero {
+            text-align: center;
+            margin-bottom: 60px;
+        }
+
+        .ai-hero h1 {
+            font-size: 2.5rem;
+            font-weight: 800;
+        }
+
+        .ai-hero p {
+            color: #666;
+            font-size: 0.9rem;
+            margin-top: 10px;
+        }
+
+        /* VIDEO GRID (CENTERED REELS) */
+        .video-grid {
+            display: flex;
+            justify-content: center;
+            gap: 30px;
+            flex-wrap: wrap;
+        }
+
+        .video-card {
+            width: 280px;
+            aspect-ratio: 9 / 16;
+            background: #000;
+            border-radius: 10px;
+            overflow: hidden;
+        }
+
+        .video-card iframe {
+            width: 100%;
+            height: 100%;
+            border: none;
+        }
+
+        /* subtle premium hover */
+        .video-card:hover {
+            transform: translateY(-5px) scale(1.02);
+            transition: 0.3s ease;
+        }
+
+        /* mobile */
+        @media (max-width: 600px) {
+            .video-card {
+                width: 100%;
+                max-width: 320px;
+            }
+        }
+    </style>
+</head>
+<body>
+
+<main class="resume-view resume-loaded">
+
+    <!-- BACK -->
+    <a href="portfolio.html" class="btn-back">← BACK TO PORTFOLIO</a>
+
+    <!-- HERO -->
+    <section class="ai-hero">
+        <h1>Video Editing with AI</h1>
+        <p>AI-powered reels, automation, and viral storytelling</p>
+        <p style="color:#999; font-size:0.75rem; margin-top:8px;">
+             VEO-3 · Heygen · Kling · Claude · ChatGPT · Gemini · Firefly · Premiere Pro · Vegas Pro · CapCut
+        </p>
+    </section>
+
+    <!-- VIDEOS -->
+    <section class="video-grid">
+
+        <div class="video-card">
+            <iframe src="https://www.youtube.com/embed/P6p6FQH4nz0" allowfullscreen></iframe>
+        </div>
+
+        <div class="video-card">
+            <iframe src="https://www.youtube.com/embed/kdJqAy58yM0" allowfullscreen></iframe>
+        </div>
+
+        <div class="video-card">
+            <iframe src="https://www.youtube.com/embed/aA6x0t_hrlY" allowfullscreen></iframe>
+        </div>
+
+    </section>
+
+</main>
+
+</body>
+</html>
